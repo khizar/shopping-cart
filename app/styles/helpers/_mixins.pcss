@@ -1,0 +1,79 @@
+@import "_variables.pcss";
+@import "../base/_colors.pcss";
+
+:root{
+  --default-grid-display: flex;
+  --default-grid-direction: row;
+  --default-grid-justify-content : flex-start;
+  --default-grid-align-items: stretch;
+  --default-grid-wrap: wrap;
+  --default-grid-align-content: stretch;
+  --input-color-placeholder: #7d7d7d;
+}
+
+@define-mixin text-overflow-ellipses {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+@define-mixin placeholder $color: var(--input-color-placeholder), $fontStyle: normal, $fontWeight: 300, $fontSize {
+  &::-webkit-input-placeholder {
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    color: $color;
+  }
+  &:-moz-placeholder {
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    color: $color;
+  }
+  &::-moz-placeholder {
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    color: $color;
+  }
+}
+
+
+
+
+/*GRID RELATED*/
+@define-mixin container $margin: var(--margin-desktop) {
+  max-width: var(--container-max-width);
+  /*min-width: 0;*/
+  /*min-width: var(--container-max-width);*/
+  /*width: 100%;*/
+
+  margin-right: auto;
+  margin-left: auto;
+
+  padding-left: $margin;
+  padding-right: $margin;
+}
+
+
+
+@define-mixin grid $display: var(--default-grid-display), $direction: var(--default-grid-direction), $justify-content: var(--default-grid-justify-content), $align-items: var(--default-grid-align-items), $wrap: var(--default-grid-wrap),  $align-content: var(--default-grid-align-content) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $wrap;
+  align-content: $align-content;
+}
+
+
+@define-mixin responsive-invisibility{
+  display: none !important;
+}

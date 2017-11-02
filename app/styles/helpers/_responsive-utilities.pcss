@@ -1,0 +1,125 @@
+@import "./_variables.pcss";
+@import "./_mixins.pcss";
+
+/*IOS VISIBLE / HIDDEN CLASSES*/
+/*USAGE:*/
+/*.hidden-ios*/
+/*.visible-ios  - for blocks*/
+/*.visible-ios-f  - for flex*/
+@media all {
+  /*VISIBLE*/
+  :global .ios .visible-ios {
+    display: block;
+  }
+
+  :global :not(ios) .visible-ios {
+    display: none;
+  }
+
+  :global .ios .visible-ios-f {
+    display: flex;
+  }
+
+  :global :not(ios) .visible-ios-f {
+    display: none;
+  }
+
+  :global .hidden-ios {
+    display: none;
+  }
+
+  :global :not(ios) .hidden-ios {
+    display: block;
+  }
+
+  :global .ios .hidden-ios {
+    display: none;
+  }
+}
+
+@media all {
+  :global .hidden {
+    display: none;
+  }
+}
+
+@media all {
+  :global .mobile-only {
+    display: inline-block;
+  }
+  :global .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 720px) {
+  :global .mobile-only {
+    display: none;
+  }
+  :global .desktop-only {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 720px) {
+  :global .mobile-only {
+    display: none;
+  }
+}
+
+@media all {
+  :global .invisible {
+    visibility: hidden;
+  }
+}
+
+:root{
+  --extra-lg-start: 1031px;
+}
+
+@custom-media --xs all and (max-width: 375px);
+@custom-media --small-and-up all and (min-width: 400px);
+@custom-media --sm all and (min-width: 375px) and (max-width: 600px);
+@custom-media --md all and (min-width: 601px) and (max-width: 992px);
+@custom-media --lg all and (min-width: 993px) and (max-width: 1030px);
+
+
+@custom-media --extra-lg all and (min-width: 1031px);
+
+@media (--xs) {
+  :global .hidden-xs {
+    @mixin responsive-invisibility;
+  }
+}
+
+@media (--sm) {
+  :global .hidden-sm {
+    @mixin responsive-invisibility;
+  }
+}
+
+@media (--md) {
+  :global .hidden-md {
+    @mixin responsive-invisibility;
+  }
+}
+
+@media (--lg){
+  :global .hidden-lg {
+    @mixin responsive-invisibility;
+  }
+}
+
+@media (--extra-lg) {
+  :global .hidden-extra-lg {
+    @mixin responsive-invisibility;
+  }
+}
+
+
+:global .non-selectable {
+  user-select: none;
+}
+:global .bold{
+  font-weight: var(--font-weight-bold);
+}

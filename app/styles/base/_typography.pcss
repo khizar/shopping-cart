@@ -1,0 +1,387 @@
+@import "../helpers/_variables.pcss";
+@import "../helpers/_responsive-utilities.pcss";
+
+/*// todo extract reset?*/
+/**
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+@font-face {
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 300;
+   src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/*!* latin-ext *!*/
+/*@font-face {*/
+   /*font-family: 'Open Sans';*/
+   /*font-style: normal;*/
+   /*font-weight: 400;*/
+   /*src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');*/
+   /*unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;*/
+/*}*/
+/* latin */
+@font-face {
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 400;
+   src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/*!* latin-ext *!*/
+/*@font-face {*/
+   /*font-family: 'Open Sans';*/
+   /*font-style: normal;*/
+   /*font-weight: 600;*/
+   /*src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');*/
+   /*unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;*/
+/*}*/
+/* latin */
+@font-face {
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 600;
+   src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/*!* latin-ext *!*/
+/*@font-face {*/
+   /*font-family: 'Open Sans';*/
+   /*font-style: normal;*/
+   /*font-weight: 700;*/
+   /*src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzD0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');*/
+   /*unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;*/
+/*}*/
+/* latin */
+@font-face {
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 700;
+   src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+html {
+  /*color: var(--color-neutral-90);*/
+  /*font-size: 62.5%;*/
+  font-size: 31.25%;
+  font-family: var(--font-main);
+
+
+  /*font: 400 var(--font-size-base) var(--font-family-body);*/
+
+  height: 100%;
+  line-height: var(--line-height-base);
+
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+@media all and (min-width: 400px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (--xs) {
+  body {
+    font-size: var(--font-size-regular);
+  }
+}
+
+/*
+ * Headings
+ */
+h1, h2, legend, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  /*font-weight: 600;*/
+  /*font-size: var(--font-size-50);*/
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/*todo extract font-size + weight into mixin to @include it*/
+h1 {
+  font-size: var(--font-size-huge);
+  font-weight: var(--font-weight-light);
+}
+
+h2 {
+  font-size: var(--font-size-extra-large-plus);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+h3 {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+h4 {
+  font-size: var(--font-size-regular-plus-plus);
+  font-weight: var(--font-weight-regular);
+}
+
+h5 {
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-bold);
+}
+
+h6 {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+}
+
+/*@media (--xs) {*/
+@media all and (max-width: 400px) {
+  h1 {
+    font-size: var(--font-size-extra-large-plus);
+    font-weight: var(--font-weight-light);
+  }
+
+  h2 {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  h3 {
+    font-size: var(--font-size-regular-plus);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  h4 {
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+  }
+
+  h5 {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+  }
+
+  h6 {
+    font-size: var(--font-size-x-small);
+    font-weight: var(--font-weight-regular);
+  }
+}
+
+/*
+ * Links
+ */
+a {
+  /*color: var(--color-primary-50);*/
+  cursor: pointer;
+  text-decoration: none;
+
+  /*&:hover { color: var(--color-primary-70); }*/
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code, pre {
+  font-family: 'courier new', monospace;
+  font-size: 1em; /* 2 */
+}
+
+pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+/**
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+del {
+  text-decoration: line-through;
+}
+
+mark {
+  background: color(yellow alpha(-50%));
+}
+
+figure {
+  margin: 0;
+}
+
+hr {
+  background-color: transparent;
+  /*border: solid var(--color-neutral-30);*/
+  border-width: 1px 0 0;
+  clear: both;
+  /*margin: 2.5rem var(--spacing);*/
+
+  overflow: visible; /* 2 */
+}
+
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%
+}
+
+/**
+ * 1. Change the default font family.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0; /* 2 */
+  font-family: var(--font-main); /* 1 */
+}
+
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+/**
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  padding: 0; /* 2 */
+}
+
+/**
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*INPUTS DEFAULT TEXT*/
+::-webkit-input-placeholder {
+  font-family: var(--font-main), Arial, Helvetica, sans-serif;
+}
+
+:-ms-input-placeholder {
+  font-family: var(--font-main), Arial, Helvetica, sans-serif;
+}
+
+:-moz-placeholder {
+  font-family: var(--font-main), Arial, Helvetica, sans-serif;
+}
+
+::-moz-placeholder {
+  font-family: var(--font-main), Arial, Helvetica, sans-serif;
+}

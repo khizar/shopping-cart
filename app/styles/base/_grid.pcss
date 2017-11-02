@@ -1,0 +1,17 @@
+@import "../helpers/_variables.pcss";
+@import "../helpers/_mixins.pcss";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:global .container{
+   @mixin container var(--margin-mobile);
+ }
+
+@media all and (min-width: 500px) {
+  :global .container{
+    @mixin container var(--margin-desktop);
+  }
+}
