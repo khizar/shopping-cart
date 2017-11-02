@@ -1,7 +1,8 @@
 import 'react-hot-loader/patch';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import {AppContainer} from 'react-hot-loader';
+import { Provider } from 'react-redux';
 
 import App from './components/App';
 import CreateStore from './CreateStore';
@@ -18,15 +19,32 @@ if (module.hot) {
 
 const render = Component => {
     ReactDOM.render(
-        <AppContainer>
-            <Component />
-        </AppContainer>,
-        document.getElementById('myApp')
+        <Provider store={store}>
+            <AppContainer>
+                <Component/>
+            </AppContainer>
+        </Provider>,
+        document.getElementById('root')
     );
 };
 
 render(App);
 
+// Hot Module Replacement API
 if (module.hot) {
-    module.hot.accept('./components/App', () => render(<App />));
+    module.hot.accept(
+        './components/App',
+        () => {
+            const NextApp = require('./components/App')
+                .default;
+            ReactDOM.render(
+                <AppContainer>
+                    <Provider store={store}>
+                        <NextApp/>
+                    </Provider>
+                </AppContainer>,
+                document.getElementById('root')
+            );
+        }
+    );
 }
