@@ -1,8 +1,10 @@
 import Immutable from 'seamless-immutable';
 import { handleActions } from 'redux-actions';
 
+import ProductsList from "../constants/ProductsList";
+
 const INITIAL_STATE = Immutable({
-    isTest: false
+    products: ProductsList
 });
 
 export default handleActions(
