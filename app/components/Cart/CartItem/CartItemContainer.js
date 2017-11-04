@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import CartItem from './CartItem';
 import * as Selectors from '../../../selectors/Selectors';
+import { deleteItem } from '../CartActions';
 
 const mapStateToProps = (state, ownProps) => ({
     product: Selectors.getProductDetailsById(ownProps.itemId, state),
@@ -9,4 +10,10 @@ const mapStateToProps = (state, ownProps) => ({
     currency: Selectors.getCurrency(state)
 });
 
-export default connect(mapStateToProps, null)(CartItem);
+const mapDispatchToProps = dispatch => ({
+    deleteItem: id => {
+        dispatch(deleteItem(id));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartItem);

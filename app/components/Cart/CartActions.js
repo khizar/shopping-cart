@@ -28,13 +28,28 @@ export const addItemToCart = productId => (dispatch, getState) => {
         subTotal: quatityInCart * price
     };
 
+    let cartTotalWithoutCurrentItem = calculateTotalExceptCurrentItem(productId, state);
+    dispatch(_setItemToCart(newCartItem));
+    dispatch(_setTotalToCart(cartTotalWithoutCurrentItem + newCartItem.subTotal));
+};
+
+export const deleteItem = itemId => (dispatch, getState) => {
+    const state = getState();
+    const item = Selectors.getProductInCartById(itemId, state);
+
+    const newTotalAfterDeletion = calculateTotalExceptCurrentItem(itemId, state);
+
+    dispatch(_setItemToCart({ id: itemId, quantity: 0 }));
+    dispatch(_setTotalToCart(newTotalAfterDeletion));
+};
+
+const calculateTotalExceptCurrentItem = (currentItemId, state) => {
     const allItemsInCart = Selectors.getAllItemsInCart(state);
     let cartTotalWithoutCurrentItem = 0;
     Object.keys(allItemsInCart).map(key => {
-        if (Number(key) !== Number(productId)) {
+        if (Number(key) !== Number(currentItemId)) {
             cartTotalWithoutCurrentItem += allItemsInCart[key].subTotal;
         }
     });
-    dispatch(_setItemToCart(newCartItem));
-    dispatch(_setTotalToCart(cartTotalWithoutCurrentItem + newCartItem.subTotal));
+    return cartTotalWithoutCurrentItem;
 };

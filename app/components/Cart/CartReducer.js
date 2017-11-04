@@ -14,7 +14,7 @@ export default handleActions(
             const { id, subTotal, quantity } = action.payload;
             if (quantity === 0) {
                 const itemsListWithoutThisItem = state.itemsInCart.without(id);
-                state.set('itemsInCart', itemsListWithoutThisItem);
+                return state.set('itemsInCart', itemsListWithoutThisItem);
             }
             return state.setIn(['itemsInCart', id], { subTotal, quantity });
         },

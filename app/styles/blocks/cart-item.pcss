@@ -10,7 +10,7 @@
   margin: 10px 0;
   padding: 10px;
 
-  @e item-quantity-section{
+  @e item-quantity-section {
     min-width: calc(99.9% * 4 / 12 - (1rem - 1rem * 4 / 12));
 
   }
@@ -23,16 +23,31 @@
 
   }
 
-  @e thumbnail{
+  @e thumbnail {
     max-height: 100%;
     margin: 0 20px;
   }
-  @e name{}
-  @e quantity{
+  @e name {
+  }
+  @e quantity {
+  }
+  @e amount-section {
+    min-width: calc(99.9% * 3 / 12 - (1rem - 1rem * 3 / 12));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   @e sub-total {
-    min-width: calc(99.9% * 3 / 12 - (1rem - 1rem * 3 / 12));
     font-weight: var(--font-weight-bold);
+  }
+
+  @e delete-button {
+    background: url(../../assets/svg/trash_basket.svg);
+    background-size: 100% 100%;
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    outline: 0;
   }
 
 }
