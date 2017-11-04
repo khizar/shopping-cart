@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import ProductItem from './ProductItem';
-import { addItemToCart } from '../Cart/CartActions';
-import { getCurrency, getProductsList } from '../../selectors/Selectors';
+import { addItemToCart } from '../../Cart/CartActions';
+import { getCurrency, getProductsList } from '../../../selectors/Selectors';
 
 const mapStateToProps = state => ({
     currency: getCurrency(state)

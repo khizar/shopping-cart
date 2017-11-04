@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
 import styles from './ProductsList.pcss';
-import ProductItemContainer from './../ProductItem/ProductItemContainer';
+import ProductItemContainer from './ProductItem/ProductItemContainer';
 
 class ProductsList extends React.Component {
     render() {
