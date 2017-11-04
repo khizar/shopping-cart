@@ -1,4 +1,3 @@
-/* eslint-disable */
 const BEM_CONFIG = {
     defaultNamespace: undefined,
     style: 'bem',
@@ -24,14 +23,13 @@ const AUTOPREFIXER_CONFIG = {
         'Safari >= 7'
     ]
 };
-// eslint-disable-line global-require
 module.exports = {
     plugins: [
         // Transfer @import rule by inlining content, e.g. @import "normalize.css"
         // https://github.com/postcss/postcss-import
         require('postcss-import'),
         require('postcss-url'),
-        require('postcss-bem')(BEM_CONFIG),
+        require('postcss-bem-fix')(BEM_CONFIG),
         require('precss'),
 
         // W3C variables, e.g. :root { --color: red; } div { background: var(--color); }

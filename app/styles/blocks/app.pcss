@@ -1,7 +1,31 @@
-@b main {
-    background: yellow;
-    height: 200px;
+@import "./../base/_colors.pcss";
+
+@b app {
+
+  @e wrapper {
     display: flex;
-    width: calc(99.9% * 6 / 12 - (1rem - 1rem * 6 / 12));
+    flex-direction: column;
+    align-items: center;
+    width: calc(99.9% * 10 / 12 - (1rem - 1rem * 10 / 12));
     margin: auto;
+    max-width: 800px;
+    overflow: auto;
+    background-color: transparent;
+  }
+
+  @e cart-view {
+    height: 40px;
+    background: white;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  @e nav-link {
+    color: #333;
+    min-width: 100px;
+  }
+
 }

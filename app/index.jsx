@@ -1,8 +1,9 @@
 import 'react-hot-loader/patch';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
+import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './components/AppContainer';
 import CreateStore from './CreateStore';
@@ -20,9 +21,11 @@ if (module.hot) {
 const render = Component => {
     ReactDOM.render(
         <Provider store={store}>
-            <AppContainer>
-                <Component/>
-            </AppContainer>
+            <Router>
+                <AppContainer>
+                    <Component />
+                </AppContainer>
+            </Router>
         </Provider>,
         document.getElementById('root')
     );
@@ -32,19 +35,15 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-    module.hot.accept(
-        './components/App',
-        () => {
-            const NextApp = require('./components/App')
-                .default;
-            ReactDOM.render(
-                <AppContainer>
-                    <Provider store={store}>
-                        <NextApp/>
-                    </Provider>
-                </AppContainer>,
-                document.getElementById('root')
-            );
-        }
-    );
+    module.hot.accept('./components/App', () => {
+        const NextApp = require('./components/App').default;
+        ReactDOM.render(
+            <AppContainer>
+                <Provider store={store}>
+                    <NextApp />
+                </Provider>
+            </AppContainer>,
+            document.getElementById('root')
+        );
+    });
 }
