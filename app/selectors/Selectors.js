@@ -15,3 +15,15 @@ export function getProductInCartById(id, state) {
 export function getCurrency(state) {
     return state.products.currency;
 }
+
+export function getNumberOfItemsInCart(state) {
+    return Object.keys(state.cart.itemsInCart).length;
+}
+
+export function getAllItemsInCart(state) {
+    return state.cart.itemsInCart;
+}
+
+export function getCartTotal(state) {
+    return state.cart.totalCost;
+}

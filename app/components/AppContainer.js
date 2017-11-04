@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
 
 import App from './App';
-import { getProductsList } from '../selectors/Selectors';
+import * as Selectors from '../selectors/Selectors';
 
 const mapStateToProps = state => ({
-    productsList: getProductsList(state)
+    productsList: Selectors.getProductsList(state),
+    cartItemsCount: Selectors.getNumberOfItemsInCart(state),
+    cartTotal: Selectors.getCartTotal(state),
+    currency: Selectors.getCurrency(state)
 });
 
 export default connect(mapStateToProps, null)(App);

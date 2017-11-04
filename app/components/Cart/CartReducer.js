@@ -4,7 +4,8 @@ import { handleActions } from 'redux-actions';
 const INITIAL_STATE = Immutable({
     itemsInCart: {
         // {id, quantity, subTotal}
-    }
+    },
+    totalCost: 0
 });
 
 export default handleActions(
@@ -16,6 +17,9 @@ export default handleActions(
                 state.set('itemsInCart', itemsListWithoutThisItem);
             }
             return state.setIn(['itemsInCart', id], { subTotal, quantity });
+        },
+        SET_CART_TOTAL: (state, action) => {
+            return state.set('totalCost', action.payload);
         }
     },
     INITIAL_STATE

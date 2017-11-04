@@ -10,25 +10,30 @@ import { CART_ROUTE, HOME_ROUTE } from '../constants/MIscellenousConstants';
 
 class App extends React.Component {
     render() {
-        const { productsList } = this.props;
+        const { productsList, cartTotal, cartItemsCount, currency } = this.props;
 
         return (
             <div styleName="app" className="container">
                 <section styleName="app__wrapper">
                     <section styleName="app__cart-view">
                         <label>
-                            Items in cart: <b>{this.props.cartItemsCount}</b>
+                            Items in cart: <b>{cartItemsCount}</b>
                         </label>
-                        {this.props.location.pathname === HOME_ROUTE && (
-                            <Link to={CART_ROUTE} styleName="app__nav-link">
-                                view cart
-                            </Link>
-                        )}
-                        {this.props.location.pathname === CART_ROUTE && (
-                            <Link to={HOME_ROUTE} styleName="app__nav-link">
-                                view products
-                            </Link>
-                        )}
+                        <section styleName="app__cart-details">
+                            <label>
+                                Cart Total: <b>{`${cartTotal} ${currency}`}</b>
+                            </label>
+                            {this.props.location.pathname === HOME_ROUTE && (
+                                <Link to={CART_ROUTE} styleName="app__nav-link">
+                                    view cart
+                                </Link>
+                            )}
+                            {this.props.location.pathname === CART_ROUTE && (
+                                <Link to={HOME_ROUTE} styleName="app__nav-link">
+                                    view products
+                                </Link>
+                            )}
+                        </section>
                     </section>
                     <Route
                         exact
@@ -46,12 +51,15 @@ class App extends React.Component {
 
 App.defaultProps = {
     productsList: [],
-    cartItemsCount: 0
+    cartItemsCount: 0,
+    cartTotal: 0
 };
 
 App.propTypes = {
     productsList: PropTypes.array,
-    cartItemsCount: PropTypes.number
+    cartItemsCount: PropTypes.number,
+    cartTotal: PropTypes.number,
+    currency: PropTypes.string
 };
 
 export default withRouter(CSSModules(App, styles, { allowMultiple: true }));
