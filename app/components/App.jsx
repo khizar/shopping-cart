@@ -8,6 +8,7 @@ import styles from './App.pcss';
 import ProductsList from './ProductsListing/ProductsList';
 import CartContainer from './Cart/CartContainer';
 import AppNav from './AppNav';
+import { CART_ROUTE, HOME_ROUTE } from '../constants/MIscellenousConstants';
 
 class App extends React.Component {
     render() {
@@ -23,12 +24,12 @@ class App extends React.Component {
                     />
                     <Route
                         exact
-                        path="/cart"
+                        path={HOME_ROUTE}
                         render={routeProps => (
                             <ProductsList {...routeProps} productsList={productsList} />
                         )}
                     />
-                    <Route path="/" component={CartContainer} />
+                    <Route path={CART_ROUTE} component={CartContainer} />
                 </section>
             </div>
         );

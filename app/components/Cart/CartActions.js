@@ -35,12 +35,31 @@ export const addItemToCart = productId => (dispatch, getState) => {
 
 export const deleteItem = itemId => (dispatch, getState) => {
     const state = getState();
-    const item = Selectors.getProductInCartById(itemId, state);
 
     const newTotalAfterDeletion = calculateTotalExceptCurrentItem(itemId, state);
 
     dispatch(_setItemToCart({ id: itemId, quantity: 0 }));
     dispatch(_setTotalToCart(newTotalAfterDeletion));
+};
+
+export const decrementItemQuantity = itemId => (dispatch, getState) => {
+    const state = getState();
+    const itemInCart = Selectors.getProductInCartById(itemId, state);
+    const product = Selectors.getProductDetailsById(itemId, state);
+
+    if (!itemInCart) {
+        console.log('Item not in cart');
+        return;
+    }
+
+    const newItemQuantiy = itemInCart.quantity - 1;
+    const newSubTotal = newItemQuantiy * product.price;
+
+    const totalAfterWithoutCurrentItem = calculateTotalExceptCurrentItem(itemId, state);
+    const newItem = { id: itemId, quantity: newItemQuantiy, subTotal: newSubTotal };
+
+    dispatch(_setItemToCart(newItem));
+    dispatch(_setTotalToCart(totalAfterWithoutCurrentItem + newSubTotal));
 };
 
 const calculateTotalExceptCurrentItem = (currentItemId, state) => {

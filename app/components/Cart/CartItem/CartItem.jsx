@@ -8,7 +8,12 @@ class CartItem extends React.Component {
     handleDeleteItemClick = () => {
         this.props.deleteItem(this.props.itemId);
     };
-
+    handleIncrementAmountClick = () => {
+        this.props.incrementItemQuantity(this.props.itemId);
+    };
+    handleDecrementAmountClick = () => {
+        this.props.decrementItemQuantity(this.props.itemId);
+    };
     render() {
         const { product, cartItem, currency } = this.props;
 
@@ -19,7 +24,17 @@ class CartItem extends React.Component {
                     <label styleName="cart-item__name">{product.name}</label>
                 </section>
                 <section styleName="cart-item__item-quantity-section">
+                    <button
+                        styleName="cart-item__icon cart-item__icon--plus"
+                        title="Add to Cart"
+                        onClick={this.handleIncrementAmountClick}
+                    />
                     <label styleName="cart-item__quantity">{cartItem.quantity}</label>
+                    <button
+                        styleName="cart-item__icon cart-item__icon--minus"
+                        title="Add to Cart"
+                        onClick={this.handleDecrementAmountClick}
+                    />
                 </section>
                 <section styleName="cart-item__amount-section">
                     <label styleName="cart-item__sub-total">{`${cartItem.subTotal} ${currency}`}</label>
@@ -39,7 +54,9 @@ CartItem.propTypes = {
     product: PropTypes.object,
     cartItem: PropTypes.object,
     currency: PropTypes.string,
-    deleteItem: PropTypes.func
+    deleteItem: PropTypes.func,
+    incrementItemQuantity: PropTypes.func,
+    decrementItemQuantity: PropTypes.func
 };
 
 export default CSSModules(CartItem, styles, { allowMultiple: true });

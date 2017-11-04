@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import CartItem from './CartItem';
 import * as Selectors from '../../../selectors/Selectors';
-import { deleteItem } from '../CartActions';
+import { addItemToCart, decrementItemQuantity, deleteItem } from '../CartActions';
 
 const mapStateToProps = (state, ownProps) => ({
     product: Selectors.getProductDetailsById(ownProps.itemId, state),
@@ -13,6 +13,12 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
     deleteItem: id => {
         dispatch(deleteItem(id));
+    },
+    decrementItemQuantity: id => {
+        dispatch(decrementItemQuantity(id));
+    },
+    incrementItemQuantity: id => {
+        dispatch(addItemToCart(id));
     }
 });
 
