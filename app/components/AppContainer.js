@@ -1,9 +1,10 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import App from './App';
+import { getProductsList } from '../selectors/Selectors';
 
 const mapStateToProps = state => ({
-    productsList: state.testReducer.products
+    productsList: getProductsList(state)
 });
 
 export default connect(mapStateToProps, null)(App);

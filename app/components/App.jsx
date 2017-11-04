@@ -1,11 +1,12 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 
 import styles from './App.pcss';
 import ProductsList from './ProductsListing/ProductsList';
 import Cart from './Cart/Cart';
+import { CART_ROUTE, HOME_ROUTE } from '../constants/MIscellenousConstants';
 
 class App extends React.Component {
     render() {
@@ -18,13 +19,13 @@ class App extends React.Component {
                         <label>
                             Items in cart: <b>{this.props.cartItemsCount}</b>
                         </label>
-                        {this.props.location.pathname === '/' && (
-                            <Link to="/cart" styleName="app__nav-link">
+                        {this.props.location.pathname === HOME_ROUTE && (
+                            <Link to={CART_ROUTE} styleName="app__nav-link">
                                 view cart
                             </Link>
                         )}
-                        {this.props.location.pathname === '/cart' && (
-                            <Link to="/" styleName="app__nav-link">
+                        {this.props.location.pathname === CART_ROUTE && (
+                            <Link to={HOME_ROUTE} styleName="app__nav-link">
                                 view products
                             </Link>
                         )}

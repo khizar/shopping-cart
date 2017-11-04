@@ -1,10 +1,11 @@
 import Immutable from 'seamless-immutable';
 import { handleActions } from 'redux-actions';
 
-import ProductsList from "../constants/ProductsList";
+import ProductsList from '../../constants/ProductsList';
 
 const INITIAL_STATE = Immutable({
-    products: ProductsList
+    productsList: ProductsList,
+    currency: '€'
 });
 
 export default handleActions(

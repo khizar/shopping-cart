@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
 import styles from './ProductsList.pcss';
-import ProductItem from './../ProductItem/ProductItem';
+import ProductItemContainer from './../ProductItem/ProductItemContainer';
 
 class ProductsList extends React.Component {
     render() {
         return (
             <section styleName="products-list">
                 {this.props.productsList.map(product => {
-                    return <ProductItem key={product.id} product={product} />;
+                    return <ProductItemContainer key={product.id} product={product} />;
                 })}
             </section>
         );
@@ -26,7 +26,7 @@ ProductsList.propTypes = {
         PropTypes.shape({
             id: PropTypes.number,
             name: PropTypes.string,
-            price: PropTypes.string,
+            price: PropTypes.numbr,
             image: PropTypes.string
         })
     )

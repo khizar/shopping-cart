@@ -5,20 +5,26 @@ import CSSModules from 'react-css-modules';
 import styles from './ProductItem.pcss';
 
 class ProductItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    handleAddToCartClick = () => {
+        this.props.addItemToCart(this.props.product.id);
+    };
 
     render() {
-        const { product } = this.props;
+        const { product, currency } = this.props;
 
         return (
             <div key={product.id} styleName="product">
-                <button styleName="product__add-to-cart-button" />
+                <button
+                    styleName="product__add-to-cart-button"
+                    title="Add to Cart"
+                    onClick={this.handleAddToCartClick}
+                />
                 <img styleName="product__image" src={product.image} alt={product.name} />
                 <section styleName="product__details">
                     <label styleName="product__name">{product.name}</label>
-                    <label styleName="product__price">{product.price}</label>
+                    <label styleName="product__price">
+                        {product.price} {currency}
+                    </label>
                     <span styleName="product__desc">{product.description}</span>
                 </section>
             </div>
@@ -30,10 +36,11 @@ ProductItem.propTypes = {
     product: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,
-        price: PropTypes.string,
+        price: PropTypes.number,
         image: PropTypes.string,
         description: PropTypes.string
-    })
+    }),
+    currency: PropTypes.string
 };
 
 export default CSSModules(ProductItem, styles, { allowMultiple: true });

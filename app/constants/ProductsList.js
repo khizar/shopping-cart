@@ -2,7 +2,7 @@ export default [
     {
         id: 0,
         name: 'JAX - sneaker',
-        price: '99.95 €',
+        price: 99,
         image:
             'https://mosaic01.ztat.net/vgs/media/catalog2_hd/QU/14/2C/02/9Q/11/QU142C029-Q11@12.1.jpg',
         description:
@@ -11,7 +11,7 @@ export default [
     {
         id: 1,
         name: 'Finger gloves',
-        price: '65.85 €',
+        price: 65.5,
         image:
             'https://mosaic01.ztat.net/vgs/media/catalog2_hd/B1/74/2L/03/GQ/11/B1742L03G-Q11@11.jpg',
         description:
@@ -20,7 +20,7 @@ export default [
     {
         id: 2,
         name: 'Servo',
-        price: '200 €',
+        price: 200,
         image:
             'https://mosaic01.ztat.net/vgs/media/catalog2_hd/DC/14/2F/00/5N/11/DC142F005-N11@6.jpg',
         description:
@@ -29,7 +29,7 @@ export default [
     {
         id: 3,
         name: 'Scope Pro',
-        price: '110.00 €',
+        price: 110,
         image:
             'https://mosaic02.ztat.net/vgs/media/catalog2_hd/1S/M4/4E/00/HQ/11/1SM44E00H-Q11@10.jpg',
         description:
@@ -38,7 +38,7 @@ export default [
     {
         id: 4,
         name: 'Holt 2',
-        price: '50.50 €',
+        price: 50.5,
         image:
             'https://mosaic02.ztat.net/vgs/media/catalog2_hd/1S/M4/4E/00/MM/11/1SM44E00M-M11@9.jpg',
         description:
