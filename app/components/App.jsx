@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
 import styles from './App.pcss';
+
 import ProductsList from './ProductsListing/ProductsList';
-import Cart from './Cart/Cart';
+import CartContainer from './Cart/CartContainer';
 import AppNav from './AppNav';
 
 class App extends React.Component {
@@ -22,12 +23,12 @@ class App extends React.Component {
                     />
                     <Route
                         exact
-                        path="/"
+                        path="/cart"
                         render={routeProps => (
                             <ProductsList {...routeProps} productsList={productsList} />
                         )}
                     />
-                    <Route path="/cart" component={Cart} />
+                    <Route path="/" component={CartContainer} />
                 </section>
             </div>
         );

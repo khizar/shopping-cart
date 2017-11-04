@@ -6,14 +6,14 @@ import styles from './ProductsList.pcss';
 import ProductItemContainer from './ProductItem/ProductItemContainer';
 
 class ProductsList extends React.Component {
+    _renderItems = () => {
+        return this.props.productsList.map(product => {
+            return <ProductItemContainer key={product.id} product={product} />;
+        });
+    };
+
     render() {
-        return (
-            <section styleName="products-list">
-                {this.props.productsList.map(product => {
-                    return <ProductItemContainer key={product.id} product={product} />;
-                })}
-            </section>
-        );
+        return <section styleName="products-list">{this._renderItems()}</section>;
     }
 }
 

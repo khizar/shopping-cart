@@ -4,7 +4,7 @@ export function getProductsList(state) {
 
 export function getProductDetailsById(id, state) {
     return state.products.productsList.find(product => {
-        return product.id === id;
+        return Number(product.id) === Number(id);
     });
 }
 
