@@ -2,6 +2,8 @@ import { createAction } from 'redux-actions';
 
 import * as Selectors from './../../selectors/Selectors';
 
+const isTestEnvironment = process.env.NODE_ENV === 'test';
+
 const _setItemToCart = createAction('SET_TO_CART', ({ id, subTotal, quantity }) => ({
     id,
     subTotal,
@@ -15,6 +17,7 @@ export const addItemToCart = productId => (dispatch, getState) => {
     const productInInventory = Selectors.getProductDetailsById(productId, state);
 
     if (!productInInventory) {
+        //fire unsuccessful action
         console.log('Product not available!');
         return;
     }
@@ -28,7 +31,7 @@ export const addItemToCart = productId => (dispatch, getState) => {
         subTotal: quatityInCart * price
     };
 
-    let cartTotalWithoutCurrentItem = calculateTotalExceptCurrentItem(productId, state);
+    let cartTotalWithoutCurrentItem = Selectors.calculateTotalWithoutCurrentItem(productId, state);
     dispatch(_setItemToCart(newCartItem));
     dispatch(_setTotalToCart(cartTotalWithoutCurrentItem + newCartItem.subTotal));
 };
@@ -36,9 +39,9 @@ export const addItemToCart = productId => (dispatch, getState) => {
 export const deleteItem = itemId => (dispatch, getState) => {
     const state = getState();
 
-    const newTotalAfterDeletion = calculateTotalExceptCurrentItem(itemId, state);
+    const newTotalAfterDeletion = Selectors.calculateTotalWithoutCurrentItem(itemId, state);
 
-    dispatch(_setItemToCart({ id: itemId, quantity: 0 }));
+    dispatch(_setItemToCart({ id: itemId, quantity: 0, subTotal: 0 }));
     dispatch(_setTotalToCart(newTotalAfterDeletion));
 };
 
@@ -55,20 +58,17 @@ export const decrementItemQuantity = itemId => (dispatch, getState) => {
     const newItemQuantiy = itemInCart.quantity - 1;
     const newSubTotal = newItemQuantiy * product.price;
 
-    const totalAfterWithoutCurrentItem = calculateTotalExceptCurrentItem(itemId, state);
+    const totalAfterWithoutCurrentItem = Selectors.calculateTotalWithoutCurrentItem(itemId, state);
     const newItem = { id: itemId, quantity: newItemQuantiy, subTotal: newSubTotal };
 
     dispatch(_setItemToCart(newItem));
     dispatch(_setTotalToCart(totalAfterWithoutCurrentItem + newSubTotal));
 };
 
-const calculateTotalExceptCurrentItem = (currentItemId, state) => {
-    const allItemsInCart = Selectors.getAllItemsInCart(state);
-    let cartTotalWithoutCurrentItem = 0;
-    Object.keys(allItemsInCart).map(key => {
-        if (Number(key) !== Number(currentItemId)) {
-            cartTotalWithoutCurrentItem += allItemsInCart[key].subTotal;
-        }
-    });
-    return cartTotalWithoutCurrentItem;
-};
+// add private actions here for testing
+let privateActions = {};
+if (isTestEnvironment) {
+    privateActions.setItemToCart = _setItemToCart;
+    privateActions.setTotalToCart = _setTotalToCart;
+}
+export { privateActions };

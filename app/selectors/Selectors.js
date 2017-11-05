@@ -27,3 +27,14 @@ export function getAllItemsInCart(state) {
 export function getCartTotal(state) {
     return state.cart.totalCost;
 }
+
+export function calculateTotalWithoutCurrentItem(currentItemId, state) {
+    const allItemsInCart = getAllItemsInCart(state);
+    let cartTotalWithoutCurrentItem = 0;
+    Object.keys(allItemsInCart).map(key => {
+        if (Number(key) !== Number(currentItemId)) {
+            cartTotalWithoutCurrentItem += allItemsInCart[key].subTotal;
+        }
+    });
+    return cartTotalWithoutCurrentItem;
+}
