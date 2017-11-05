@@ -10,8 +10,8 @@ const INITIAL_STATE = Immutable({
 
 export default handleActions(
     {
-        SET_IS_TEST: (state, action) => {
-            return state.set('isTest', action.payload);
+        SET_CURRENCY: (state, action) => {
+            return state.set('currency', action.payload);
         }
     },
     INITIAL_STATE

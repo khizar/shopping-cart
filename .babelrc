@@ -1,10 +1,25 @@
 {
-  "presets": ["stage-1", "es2015", "react"],
-  "plugins": ["transform-decorators-legacy", "transform-class-properties"],
+  "presets": [
+    "react",
+    [
+      "env"
+    ]
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "transform-class-properties"
+  ],
   "env": {
     "dev": {
-      "presets": ["stage-1", "es2015", "react"],
-      "plugins": ["react-hot-loader/babel"]
+      "presets": [
+        "react",
+        [
+          "env"
+        ]
+      ],
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
     }
   }
 }

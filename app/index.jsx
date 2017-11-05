@@ -11,7 +11,6 @@ import RootReducer from './RootReducer';
 
 const store = CreateStore(RootReducer);
 if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
     module.hot.accept('./RootReducer', () => {
         const nextRootReducer = require('./RootReducer').default;
         store.replaceReducer(nextRootReducer);
@@ -37,15 +36,6 @@ render(App);
 if (module.hot) {
     module.hot.accept('./components/App', () => {
         const NextApp = require('./components/App').default;
-        ReactDOM.render(
-            <Provider store={store}>
-                <Router>
-                    <AppContainer>
-                        <NextApp />
-                    </AppContainer>
-                </Router>
-            </Provider>,
-            document.getElementById('root')
-        );
+        render(NextApp);
     });
 }

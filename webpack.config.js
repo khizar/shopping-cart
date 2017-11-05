@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        app: ['react-hot-loader/patch', 'whatwg-fetch', 'babel-polyfill', './app/index.jsx']
+        app: ['react-hot-loader/patch', 'babel-polyfill', './app/index.jsx']
     },
     output: {
         path: path.resolve(__dirname, 'public/'),
