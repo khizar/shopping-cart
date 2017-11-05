@@ -5,9 +5,15 @@ import CSSModules from 'react-css-modules';
 import styles from './ProductItem.pcss';
 
 class ProductItem extends React.Component {
-    handleAddToCartClick = () => {
+    constructor(props) {
+        super(props);
+
+        this.handleAddToCartClick = this.handleAddToCartClick.bind(this);
+    }
+
+    handleAddToCartClick() {
         this.props.addItemToCart(this.props.product.id);
-    };
+    }
 
     render() {
         const { product, currency } = this.props;
