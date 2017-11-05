@@ -2,7 +2,7 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 const mockCssModules = require('mock-css-modules');
-mockCssModules.register(['.pcss', '.scss']);
+mockCssModules.register(['.pcss']);
 
 process.env.NODE_ENV = 'test';
 

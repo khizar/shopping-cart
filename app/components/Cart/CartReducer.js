@@ -3,7 +3,7 @@ import { handleActions } from 'redux-actions';
 
 const INITIAL_STATE = Immutable({
     itemsInCart: {
-        // {id, quantity, subTotal}
+        // {id: {quantity, subTotal } }
     },
     totalCost: 0
 });

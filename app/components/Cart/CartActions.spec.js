@@ -1,6 +1,5 @@
 import { it, describe } from 'mocha';
 import { expect } from 'chai';
-import sinon from 'sinon';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Immutable from 'seamless-immutable';
