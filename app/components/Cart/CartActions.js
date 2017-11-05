@@ -22,7 +22,7 @@ export const addItemToCart = productId => (dispatch, getState) => {
         return;
     }
 
-    const productInCart = Selectors.getProductInCartById(productId, state);
+    const productInCart = Selectors.getItemInCartById(productId, state);
     let quatityInCart = productInCart ? productInCart.quantity : 0;
     const price = productInInventory.price;
     const newCartItem = {
@@ -47,7 +47,7 @@ export const deleteItem = itemId => (dispatch, getState) => {
 
 export const decrementItemQuantity = itemId => (dispatch, getState) => {
     const state = getState();
-    const itemInCart = Selectors.getProductInCartById(itemId, state);
+    const itemInCart = Selectors.getItemInCartById(itemId, state);
     const product = Selectors.getProductDetailsById(itemId, state);
 
     if (!itemInCart) {

@@ -8,7 +8,7 @@ export function getProductDetailsById(id, state) {
     });
 }
 
-export function getProductInCartById(id, state) {
+export function getItemInCartById(id, state) {
     return state.cart.itemsInCart[id];
 }
 

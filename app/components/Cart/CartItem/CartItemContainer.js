@@ -6,7 +6,7 @@ import { addItemToCart, decrementItemQuantity, deleteItem } from '../CartActions
 
 const mapStateToProps = (state, ownProps) => ({
     product: Selectors.getProductDetailsById(ownProps.itemId, state),
-    cartItem: Selectors.getProductInCartById(ownProps.itemId, state),
+    cartItem: Selectors.getItemInCartById(ownProps.itemId, state),
     currency: Selectors.getCurrency(state)
 });
 
