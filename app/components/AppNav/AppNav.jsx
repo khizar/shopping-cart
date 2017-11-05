@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 
-import { CART_ROUTE, HOME_ROUTE } from '../constants/RouteConstants';
-import styles from './App.pcss';
+import { CART_ROUTE, HOME_ROUTE } from '../../constants/RouteConstants';
+import styles from '../App/App.pcss';
 
 const AppNav = ({ cartItemsCount, cartTotal, currency, location }) => (
     <section styleName="app__cart-view">

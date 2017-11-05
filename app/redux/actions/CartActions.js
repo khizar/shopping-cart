@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-import * as Selectors from './../../selectors/Selectors';
+import * as Selectors from '../selectors/Selectors';
 
 const isTestEnvironment = process.env.NODE_ENV === 'test';
 

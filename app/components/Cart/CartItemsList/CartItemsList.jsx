@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import CartItemContainer from './../CartItem/CartItemContainer';
+import CartItemContainer from '../../../containers/CartItemContainer';
 import styles from './CartItemsList.pcss';
 
 const CartItemsList = ({ cartItems }) => (

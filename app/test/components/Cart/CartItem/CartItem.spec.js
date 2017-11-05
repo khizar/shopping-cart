@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 
-import CartItem from './CartItem';
+import CartItem from '../../../../components/Cart/CartItem/CartItem';
 
 describe('<CartItem />', () => {
     it('should render without props ', () => {

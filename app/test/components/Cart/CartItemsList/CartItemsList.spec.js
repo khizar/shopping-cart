@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import CartItemsList from './CartItemsList';
+import CartItemsList from '../../../../components/Cart/CartItemsList/CartItemsList';
 
 describe('<CartItemsList />', () => {
     it('should render without props ', () => {

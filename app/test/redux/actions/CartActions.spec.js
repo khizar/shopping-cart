@@ -4,8 +4,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Immutable from 'seamless-immutable';
 
-import * as Actions from './CartActions';
-import ProductsList from '../../constants/ProductsList';
+import * as Actions from '../../../redux/actions/CartActions';
+import ProductsList from '../../../constants/ProductsList';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

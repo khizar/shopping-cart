@@ -2,8 +2,8 @@ import { it, describe } from 'mocha';
 import { expect } from 'chai';
 import Immutable from 'seamless-immutable';
 
-import CartReducer from './CartReducer';
-import * as Actions from './CartActions';
+import CartReducer from '../../../redux/reducers/CartReducer';
+import * as Actions from '../../../redux/actions/CartActions';
 
 describe('CartReducer', () => {
     let INITIAL_STATE = {};

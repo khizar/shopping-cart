@@ -5,10 +5,10 @@ import { Route } from 'react-router-dom';
 
 import styles from './App.pcss';
 
-import ProductsListContainer from './ProductsListing/ProductsListContainer';
-import CartContainer from './Cart/CartContainer';
-import AppNav from './AppNav';
-import { CART_ROUTE, HOME_ROUTE } from '../constants/RouteConstants';
+import ProductsListContainer from '../../containers/ProductsListContainer';
+import CartContainer from '../../containers/CartContainer';
+import AppNav from '../AppNav/AppNav';
+import { CART_ROUTE, HOME_ROUTE } from '../../constants/RouteConstants';
 
 class App extends React.Component {
     render() {

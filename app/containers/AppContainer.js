@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import App from './App';
-import * as Selectors from '../selectors/Selectors';
+import App from '../components/App/App';
+import * as Selectors from '../redux/selectors/Selectors';
 
 const mapStateToProps = state => ({
     cartItemsCount: Selectors.getNumberOfItemsInCart(state),

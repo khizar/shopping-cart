@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import CartItem from './CartItem';
-import * as Selectors from '../../../selectors/Selectors';
-import { addItemToCart, decrementItemQuantity, deleteItem } from '../CartActions';
+import CartItem from '../components/Cart/CartItem/CartItem';
+import * as Selectors from '../redux/selectors/Selectors';
+import { addItemToCart, decrementItemQuantity, deleteItem } from '../redux/actions/CartActions';
 
 const mapStateToProps = (state, ownProps) => ({
     product: Selectors.getProductDetailsById(ownProps.itemId, state),

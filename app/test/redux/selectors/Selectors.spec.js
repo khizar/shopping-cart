@@ -2,8 +2,8 @@ import { it, describe } from 'mocha';
 import { expect } from 'chai';
 import Immutable from 'seamless-immutable';
 
-import * as Selectors from './Selectors';
-import ProductsList from '../constants/ProductsList';
+import * as Selectors from '../../../redux/selectors/Selectors';
+import ProductsList from '../../../constants/ProductsList';
 
 describe('Selectors.js', () => {
     let state = {};
