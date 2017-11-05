@@ -1,1 +1,79 @@
-@import '../../../styles/blocks/cart-item.pcss';
+@import "./../../../styles/helpers/_variables.pcss";
+
+@b cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
+
+
+  @e item-info {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: calc(99.9% * 4 / 12 - (1rem - 1rem * 4 / 12));
+
+  }
+  @e item-quantity-section {
+    min-width: calc(99.9% * 3 / 12 - (1rem - 1rem * 3 / 12));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @e amount-section {
+    min-width: calc(99.9% * 3 / 12 - (1rem - 1rem * 3 / 12));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @e thumbnail {
+    max-height: 100%;
+    margin: 0 20px;
+  }
+  @e name {}
+  @e quantity {
+    font-weight: var(--font-weight-bold);
+    margin: 5px;
+  }
+
+  @e sub-total {
+    font-weight: var(--font-weight-bold);
+  }
+
+  @e delete-button {
+    background: url(../../../assets/svg/trash_basket.svg);
+    background-size: 100% 100%;
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  @e icon {
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    outline: 0;
+    margin: 10px;
+    cursor: pointer;
+
+    @m plus {
+      background: url(../../../assets/svg/icon_plus.svg);
+      background-size: 100% 100%;
+    }
+
+    @m minus {
+      background: url(../../../assets/svg/icon_minus.svg);
+      background-size: 100% 100%;
+    }
+  }
+
+}
