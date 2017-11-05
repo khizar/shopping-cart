@@ -3,26 +3,26 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 
-import { CART_ROUTE, HOME_ROUTE } from '../constants/MIscellenousConstants';
+import { CART_ROUTE, HOME_ROUTE } from '../constants/RouteConstants';
 import styles from './App.pcss';
 
-const AppNav = props => (
+const AppNav = ({ cartItemsCount, cartTotal, currency, location }) => (
     <section styleName="app__cart-view">
         <label>
-            Items in cart: <b>{props.cartItemsCount}</b>
+            Products in cart: <b>{cartItemsCount}</b>
         </label>
         <section styleName="app__cart-details">
             <label>
-                Cart Total: <b>{`${props.cartTotal} ${props.currency}`}</b>
+                Cart Total: <b>{`${cartTotal} ${currency}`}</b>
             </label>
 
-            {props.location.pathname === HOME_ROUTE && (
+            {location.pathname === HOME_ROUTE && (
                 <Link to={CART_ROUTE} styleName="app__nav-link">
                     view cart
                 </Link>
             )}
 
-            {props.location.pathname === CART_ROUTE && (
+            {location.pathname === CART_ROUTE && (
                 <Link to={HOME_ROUTE} styleName="app__nav-link">
                     view products
                 </Link>

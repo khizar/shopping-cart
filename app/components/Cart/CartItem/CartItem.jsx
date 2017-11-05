@@ -5,6 +5,14 @@ import CSSModules from 'react-css-modules';
 import styles from './CartItem.pcss';
 
 class CartItem extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.handleIncrementAmountClick = this.handleIncrementAmountClick.bind(this);
+        this.handleDecrementAmountClick = this.handleDecrementAmountClick.bind(this);
+        this.handleDeleteItemClick = this.handleDeleteItemClick.bind(this);
+    }
+
     handleDeleteItemClick() {
         this.props.deleteItem(this.props.itemId);
     }
@@ -28,14 +36,14 @@ class CartItem extends React.Component {
                         className="js-increment-button"
                         styleName="cart-item__icon cart-item__icon--plus"
                         title="Add to Cart"
-                        onClick={this.handleIncrementAmountClick.bind(this)}
+                        onClick={this.handleIncrementAmountClick}
                     />
                     <label styleName="cart-item__quantity">{cartItem.quantity}</label>
                     <button
                         className="js-decrement-button"
                         styleName="cart-item__icon cart-item__icon--minus"
                         title="Add to Cart"
-                        onClick={this.handleDecrementAmountClick.bind(this)}
+                        onClick={this.handleDecrementAmountClick}
                     />
                 </section>
                 <section styleName="cart-item__amount-section">
@@ -44,7 +52,7 @@ class CartItem extends React.Component {
                         className="js-delete-button"
                         styleName="cart-item__delete-button"
                         title="Add to Cart"
-                        onClick={this.handleDeleteItemClick.bind(this)}
+                        onClick={this.handleDeleteItemClick}
                     />
                 </section>
             </div>

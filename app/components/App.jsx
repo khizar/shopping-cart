@@ -5,14 +5,14 @@ import { Route } from 'react-router-dom';
 
 import styles from './App.pcss';
 
-import ProductsList from './ProductsListing/ProductsList';
+import ProductsListContainer from './ProductsListing/ProductsListContainer';
 import CartContainer from './Cart/CartContainer';
 import AppNav from './AppNav';
-import { CART_ROUTE, HOME_ROUTE } from '../constants/MIscellenousConstants';
+import { CART_ROUTE, HOME_ROUTE } from '../constants/RouteConstants';
 
 class App extends React.Component {
     render() {
-        const { productsList, cartTotal, cartItemsCount, currency } = this.props;
+        const { cartTotal, cartItemsCount, currency } = this.props;
 
         return (
             <div styleName="app" className="container">
@@ -25,9 +25,7 @@ class App extends React.Component {
                     <Route
                         exact
                         path={HOME_ROUTE}
-                        render={routeProps => (
-                            <ProductsList {...routeProps} productsList={productsList} />
-                        )}
+                        render={routeProps => <ProductsListContainer {...routeProps} />}
                     />
                     <Route path={CART_ROUTE} component={CartContainer} />
                 </section>
@@ -37,13 +35,11 @@ class App extends React.Component {
 }
 
 App.defaultProps = {
-    productsList: [],
     cartItemsCount: 0,
     cartTotal: 0
 };
 
 App.propTypes = {
-    productsList: PropTypes.array,
     cartItemsCount: PropTypes.number,
     cartTotal: PropTypes.number,
     currency: PropTypes.string

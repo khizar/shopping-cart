@@ -5,17 +5,11 @@ import CartItemsList from './CartItemsList/CartItemsList';
 
 import styles from './Cart.pcss';
 
-class Cart extends React.Component {
-    render() {
-        const { itemsInCart } = this.props;
-
-        return (
-            <div styleName="cart">
-                <CartItemsList cartItems={itemsInCart} />
-            </div>
-        );
-    }
-}
+const Cart = ({ itemsInCart }) => (
+    <div styleName="cart">
+        <CartItemsList cartItems={itemsInCart} />
+    </div>
+);
 
 Cart.propTypes = {
     itemsInCart: PropTypes.object
