@@ -12,7 +12,7 @@ import { CART_ROUTE, HOME_ROUTE } from '../../constants/RouteConstants';
 
 class App extends React.Component {
     render() {
-        const { cartTotal, cartItemsCount, currency } = this.props;
+        const { cartTotal, cartItemsCount, currency, emptyCart } = this.props;
 
         return (
             <div styleName="app" className="container">
@@ -21,6 +21,7 @@ class App extends React.Component {
                         currency={currency}
                         cartTotal={cartTotal}
                         cartItemsCount={cartItemsCount}
+                        emptyCart={emptyCart}
                     />
                     <Route
                         exact
@@ -42,7 +43,8 @@ App.defaultProps = {
 App.propTypes = {
     cartItemsCount: PropTypes.number,
     cartTotal: PropTypes.number,
-    currency: PropTypes.string
+    currency: PropTypes.string,
+    emptyCart: PropTypes.func
 };
 
 export default CSSModules(App, styles, { allowMultiple: true });

@@ -6,11 +6,15 @@ import CSSModules from 'react-css-modules';
 import { CART_ROUTE, HOME_ROUTE } from '../../constants/RouteConstants';
 import styles from '../App/App.pcss';
 
-const AppNav = ({ cartItemsCount, cartTotal, currency, location }) => (
+const AppNav = ({ cartItemsCount, cartTotal, currency, location, emptyCart }) => (
     <section styleName="app__cart-view">
-        <label>
-            Products in cart: <b>{cartItemsCount}</b>
-        </label>
+        <section styleName="app__products-in-cart">
+            <label>
+                Products in cart: <b>{cartItemsCount}</b>
+            </label>
+            <button styleName="app__empty-cart-button" onClick={emptyCart} />
+        </section>
+
         <section styleName="app__cart-details">
             <label>
                 Cart Total: <b>{`${cartTotal} ${currency}`}</b>

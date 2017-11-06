@@ -65,6 +65,8 @@ export const decrementItemQuantity = itemId => (dispatch, getState) => {
     dispatch(_setTotalToCart(totalAfterWithoutCurrentItem + newSubTotal));
 };
 
+export const emptyCart = createAction('EMPTY_CART');
+
 // add private actions here for testing
 let privateActions = {};
 if (isTestEnvironment) {

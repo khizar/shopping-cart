@@ -39,4 +39,21 @@
 
   }
 
+  @e products-in-cart {
+    min-width: calc(99.9% * 3 / 12 - (1rem - 1rem * 3 / 12));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @e empty-cart-button {
+    background: url(../../assets/svg/trash_basket.svg);
+    background-size: 100% 100%;
+    border: 0;
+    min-width: 20px;
+    min-height: 20px;
+    outline: 0;
+    cursor: pointer;
+  }
+
 }
