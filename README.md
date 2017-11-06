@@ -1,5 +1,6 @@
 # Test task
-`npm run start`
+`npm i`
+`npm start`
 
 ## Instructions
 
@@ -26,5 +27,4 @@
 * CSS Modules support and PostCSS for CSS processing.
 * Prettier for code formatting
 * Mocha and Enzyme for testing.
-* whatwg-fetch as fetch polyfill
 * webpack as the bundler.

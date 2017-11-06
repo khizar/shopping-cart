@@ -12,7 +12,7 @@ const AppNav = ({ cartItemsCount, cartTotal, currency, location, emptyCart }) =>
             <label>
                 Products in cart: <b>{cartItemsCount}</b>
             </label>
-            <button styleName="app__empty-cart-button" onClick={emptyCart} />
+            {!!cartTotal && <button styleName="app__empty-cart-button" onClick={emptyCart} />}
         </section>
 
         <section styleName="app__cart-details">
