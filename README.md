@@ -1,6 +1,10 @@
-# Test task
-`npm i`
-`npm start`
+# Shopping Cart
+ Simple Shopping cart
+
+
+## Notes:
+* could have used a money math library or a util function that converted money to cents, did the math n converted it back but that seeemed to be out of scope of the project.
+
 
 ## Instructions
 
@@ -24,7 +28,13 @@
   
 ## Stack
 * React app with babel for transpilation and babel-polyfill for browser support of latest ECMAScript features
+* Redux for state management.
+* Grid implementation using Flexbox.
 * CSS Modules support and PostCSS for CSS processing.
 * Prettier for code formatting
 * Mocha and Enzyme for testing.
 * webpack as the bundler.
+
+## Run
+`npm i && npm start`
+
