@@ -9,6 +9,7 @@ import ProductsListContainer from '../../containers/ProductsListContainer';
 import CartContainer from '../../containers/CartContainer';
 import AppNav from '../AppNav/AppNav';
 import { CART_ROUTE, HOME_ROUTE } from '../../constants/RouteConstants';
+import SearchBar from './../SearchBar/SearchBar';
 
 class App extends React.Component {
     render() {
@@ -17,18 +18,19 @@ class App extends React.Component {
         return (
             <div styleName="app" className="container">
                 <section styleName="app__wrapper">
-                    <AppNav
-                        currency={currency}
-                        cartTotal={cartTotal}
-                        cartItemsCount={cartItemsCount}
-                        emptyCart={emptyCart}
-                    />
+                    <SearchBar searchProducts={this.props.searchProducts} />
                     <Route
                         exact
                         path={HOME_ROUTE}
                         render={routeProps => <ProductsListContainer {...routeProps} />}
                     />
                     <Route path={CART_ROUTE} component={CartContainer} />
+                    <AppNav
+                        currency={currency}
+                        cartTotal={cartTotal}
+                        cartItemsCount={cartItemsCount}
+                        emptyCart={emptyCart}
+                    />
                 </section>
             </div>
         );
@@ -44,7 +46,8 @@ App.propTypes = {
     cartItemsCount: PropTypes.number,
     cartTotal: PropTypes.number,
     currency: PropTypes.string,
-    emptyCart: PropTypes.func
+    emptyCart: PropTypes.func,
+    searchProducts: PropTypes.func
 };
 
 export default CSSModules(App, styles, { allowMultiple: true });

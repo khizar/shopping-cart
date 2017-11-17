@@ -10,8 +10,15 @@ const INITIAL_STATE = Immutable({
 
 export default handleActions(
     {
-        SET_CURRENCY: (state, action) => {
-            return state.set('currency', action.payload);
+        SET_PRODUCTS: (state, action) => {
+            const products = action.payload;
+            // if(products.length < 1){
+            //     return state.set('productsList', ProductsList);
+            // }
+            return state.set('productsList', products);
+        },
+        RESET_PRODUCTS_LIST: (state, action) => {
+            return state.set('productsList', ProductsList);
         }
     },
     INITIAL_STATE

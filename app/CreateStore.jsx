@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import { searchHistoryMiddleWare } from './redux/middleware/SearchHistory';
 
 export default rootReducer => {
     /* ------------- Redux Configuration ------------- */
@@ -10,6 +11,7 @@ export default rootReducer => {
     /* ------------- Redux thunk Middleware ------------- */
 
     middleware.push(thunkMiddleware);
+    middleware.push(searchHistoryMiddleWare);
 
     /* ------------- Assemble Middleware ------------- */
 
